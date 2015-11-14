@@ -17,10 +17,10 @@
 #' # Make sure you have your working directory set to where you want to
 #' # create the course.
 #' setwd(file.path("~", "Developer", "swirl_courses"))
-#' 
+#'
 #' # Make a new course with a new lesson
 #' new_lesson("How to use pnorm", "Normal Distribution Functions in R")
-#' 
+#'
 #' # Make a new lesson in an existing course
 #' new_lesson("How to use qnorm", "Normal Distribution Functions in R")
 #' }
@@ -191,7 +191,7 @@ demo_lesson <- function(from=NULL, to=NULL) {
 #' \dontrun{
 #' # While writing a new lesson by hand just use:
 #' wq_message()
-#' 
+#'
 #' # If converting from another format to a swirl course you may want to sue the
 #' # API:
 #' wq_message("Welcome to a course on the central limit theorem.")
@@ -201,7 +201,7 @@ wq_message <- function(output = "put your text output here"){
   template <- "\n- Class: text\n  Output: {{{output}}}\n"
   cat(whisker.render(template, list(output=output)),
       file=getOption("swirlify_lesson_file_path"), append=TRUE)
-  invisible() 
+  invisible()
 }
 
 #' Template for multiple choice question
@@ -209,7 +209,7 @@ wq_message <- function(output = "put your text output here"){
 #' @param output Text that is displayed to the user.
 #' @param answer_choices A vector of strings containing a user's choices.
 #' @param correct_answer A string that designates the correct answer.
-#' @param answer_tests An internal function from \code{swirl} for testing the 
+#' @param answer_tests An internal function from \code{swirl} for testing the
 #' user's choice. See \code{\link[swirl]{AnswerTests}}.
 #' @param hint A string that is printed to the console if the user answers this
 #' question incorrectly.
@@ -219,14 +219,14 @@ wq_message <- function(output = "put your text output here"){
 #' \dontrun{
 #' # While writing a new lesson by hand just use:
 #' wq_multiple()
-#' 
+#'
 #' # If converting from another format to a swirl course you may want to sue the
 #' # API:
 #' wq_multiple("Which of the following is not a planet in our solar system?",
 #'  c("Venus", "Saturn", "Pluto"), "Pluto", "omnitest(correctVal= 'Pluto')",
 #'    "It's the smallest celestial body you can choose.")
 #' }
-wq_multiple <- function(output = "ask the multiple choice question here", 
+wq_multiple <- function(output = "ask the multiple choice question here",
                         answer_choices = c("ANS", "2", "3"),
                         correct_answer = "ANS",
                         answer_tests = "omnitest(correctVal= 'ANS')",
@@ -251,7 +251,7 @@ wq_multiple <- function(output = "ask the multiple choice question here",
 #' @param output Text that is displayed to the user.
 #' @param correct_answer A string that designates the correct answer, in this
 #' case an R expression or a value.
-#' @param answer_tests An internal function from \code{swirl} for testing the 
+#' @param answer_tests An internal function from \code{swirl} for testing the
 #' user's choice. See \code{\link[swirl]{AnswerTests}}.
 #' @param hint A string that is printed to the console if the user answers this
 #' question incorrectly.
@@ -261,7 +261,7 @@ wq_multiple <- function(output = "ask the multiple choice question here",
 #' \dontrun{
 #' # While writing a new lesson by hand just use:
 #' wq_command()
-#' 
+#'
 #' # If converting from another format to a swirl course you may want to sue the
 #' # API:
 #' wq_command("Assign the value 5 to the variable x.",
@@ -286,7 +286,7 @@ wq_command <- function(output = "explain what the user must do here",
 #' Template for R script question
 #'
 #' @param output Text that is displayed to the user.
-#' @param answer_tests An internal function from \code{swirl} for testing the 
+#' @param answer_tests An internal function from \code{swirl} for testing the
 #' user's choice. See \code{\link[swirl]{AnswerTests}}.
 #' @param hint A string that is printed to the console if the user answers this
 #' question incorrectly.
@@ -299,11 +299,11 @@ wq_command <- function(output = "explain what the user must do here",
 #' \dontrun{
 #' # While writing a new lesson by hand just use:
 #' wq_script()
-#' 
+#'
 #' # If converting from another format to a swirl course you may want to sue the
 #' # API:
 #' wq_script("Write a function that adds three numbers.",
-#'  "add_three_test()", "Something like: add3 <- function(x, y, z){x+y+z}", 
+#'  "add_three_test()", "Something like: add3 <- function(x, y, z){x+y+z}",
 #'  "add-three.R")
 #' }
 wq_script <- function(output = "explain what the user must do here",
@@ -323,9 +323,9 @@ wq_script <- function(output = "explain what the user must do here",
 }
 
 #' Template for video question
-#' 
+#'
 #' The \code{url} provided for \code{video_link} can be a link to any website.
-#' 
+#'
 #' @param output Text that is displayed to the user.
 #' @param video_link A link to a url. Please make sure to use \code{http://} or
 #' \code{https://}.
@@ -335,7 +335,7 @@ wq_script <- function(output = "explain what the user must do here",
 #' \dontrun{
 #' # While writing a new lesson by hand just use:
 #' wq_video()
-#' 
+#'
 #' # If converting from another format to a swirl course you may want to sue the
 #' # API:
 #' wq_video("Now Roger will show you the basics on YouTube.",
@@ -370,7 +370,7 @@ wq_video <- function(output = "Would you like to watch a short video about ___?"
 #' \dontrun{
 #' # While writing a new lesson by hand just use:
 #' wq_figure()
-#' 
+#'
 #' # If converting from another format to a swirl course you may want to sue the
 #' # API:
 #' wq_figure("Here we can see the curve of the normal distribution.",
@@ -394,10 +394,10 @@ wq_figure <- function(output = "explain the figure here",
 }
 
 #' Template for exact numerical question
-#' 
+#'
 #' @param output Text that is displayed to the user.
 #' @param correct_answer The numerical answer to the question.
-#' @param answer_tests An internal function from \code{swirl} for testing the 
+#' @param answer_tests An internal function from \code{swirl} for testing the
 #' user's choice. See \code{\link[swirl]{AnswerTests}}.
 #' @param hint A string that is printed to the console if the user answers this
 #' question incorrectly.
@@ -407,7 +407,7 @@ wq_figure <- function(output = "explain the figure here",
 #' \dontrun{
 #' # While writing a new lesson by hand just use:
 #' wq_numerical()
-#' 
+#'
 #' # If converting from another format to a swirl course you may want to sue the
 #' # API:
 #' wq_numerical("The golden ratio is closest to what integer?",
@@ -435,7 +435,7 @@ wq_numerical <- function(output = "explain the question here",
 #'
 #' @param output Text that is displayed to the user.
 #' @param correct_answer The answer to the question in the form of a string.
-#' @param answer_tests An internal function from \code{swirl} for testing the 
+#' @param answer_tests An internal function from \code{swirl} for testing the
 #' user's choice. See \code{\link[swirl]{AnswerTests}}.
 #' @param hint A string that is printed to the console if the user answers this
 #' question incorrectly.
@@ -445,7 +445,7 @@ wq_numerical <- function(output = "explain the question here",
 #' \dontrun{
 #' # While writing a new lesson by hand just use:
 #' wq_text()
-#' 
+#'
 #' # If converting from another format to a swirl course you may want to sue the
 #' # API:
 #' wq_text("Where is the Johns Hopkins Bloomberg School of Public Health located?",
@@ -480,7 +480,7 @@ wq_text <- function(output = "explain the question here",
 #' \dontrun{
 #' # Set the lesson interactively
 #' set_lesson()
-#' 
+#'
 #' # You can also specify the path to the \code{yaml} file you wish to work on.
 #' set_lesson(file.path("~", "R_Programming", "Functions", "lesson.yaml"))
 #' }
@@ -669,4 +669,76 @@ find_manifest <- function() {
 rule <- function(title = "") {
   width <- getOption("width") - nchar(title) - 1
   message("\n", title, paste(rep("-", width, collapse = "")), "\n")
+}
+
+
+#' Test all cmd and mult questions of a lesson.
+#'
+#' @param lesson_dir_name The directory name of the lesson. Defaults to current lesson.
+#' @export
+test_lesson <- function(lesson_dir_name = NULL){
+  if (is.null(lesson_dir_name)) {
+    lesson_dir_name <- getOption("swirlify_lesson_dir_name")
+  }
+  test_lesson_by_name(lesson_dir_name)
+}
+
+#' Test all cmd and mult questions of current course.
+#'
+#' @export
+test_course <- function(){
+  course_path <- getOption("swirlify_course_dir_path")
+  lesson_list <- list.dirs(course_path, recursive = FALSE,full.names = FALSE)
+  lesson_list <- grep("^[^\\.]",lesson_list, value = T)
+  for (lesson in lesson_list){
+    test_lesson_by_name(lesson)
+  }
+}
+
+# Test all cmd and mult questions of any lesson of current course.
+test_lesson_by_name <- function(lesson_dir_name){
+
+  message(paste("##### Begin testing:", lesson_dir_name, "#####\n"))
+  .e <- environment(swirl:::any_of_exprs)
+  attach(.e)
+  on.exit(detach(.e))
+  e <- new.env()
+
+  course_dir_path <- getOption("swirlify_course_dir_path")
+  lesson_dir_path <- file.path(course_dir_path, lesson_dir_name)
+  les <- yaml.load_file(file.path(lesson_dir_path, "lesson.yaml"))
+
+  for (R_file in c("customTests.R", "initLesson.R")){
+    R_file_path <- file.path(lesson_dir_path, R_file)
+    if(file.exists(R_file_path)) source(R_file_path,local = e)
+  }
+
+  for (question in les){
+    if(!is.null(question$CorrectAnswer)){
+      print(paste(">", question$CorrectAnswer))
+      switch(question$Class,
+             "cmd_question" = {
+               suppressWarnings({
+                 e$val <- eval(parse(text=question$CorrectAnswer), envir = e)
+                 e$expr <- parse(text = question$CorrectAnswer)[[1]]
+                 stopifnot(eval(parse(text=question$AnswerTests), envir = e))
+               })
+             },
+             "mult_question" = {
+               e$val <- as.character(question$CorrectAnswer)
+               stopifnot(eval(parse(text = question$AnswerTests), envir = e))
+             },
+             "script" = {
+               question$correctScript <- file.path(lesson_dir, "scripts", paste(tools::file_path_sans_ext(question$Script), "-correct.R", sep = ""))
+               if (file.exists(question$correctScript)) {
+                 cat("Testing script...\n")
+                 file.copy(question$correctScript, e$script_temp_path <- file.path(tempdir(), question$Script), overwrite = TRUE)
+                  source(question$correctScript, local = globalenv())
+                  stopifnot(eval(parse(text = question$AnswerTests), envir = e))
+               }
+             })
+    }
+  }
+
+  message(paste("----- Testing:", lesson_dir_name, ", done. -----\n"))
 }
